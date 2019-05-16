@@ -24,8 +24,8 @@
 		738998BC21515C9A00E378D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		738998BF21515C9A00E378D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		738998C121515C9A00E378D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEC74EC0EEC74FE000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		EEC8D580EEC9A4A000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		A1D3C360A1D3B6F000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		A1D45270A1D47E7000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +45,8 @@
 				736165982176725C0062D377 /* README.md */,
 				738998B421515C9900E378D8 /* SpokenWord */,
 				738998B321515C9900E378D8 /* Products */,
-				EEC80120EEC797E000000001 /* Configuration */,
-				EEC9A3D0EEC9A39000000001 /* LICENSE */,
+				A1D3FDF0A1D404B000000001 /* Configuration */,
+				A1D3CC30A1D3C80000000001 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,21 +71,21 @@
 			path = SpokenWord;
 			sourceTree = "<group>";
 		};
-		EEC80120EEC797E000000001 /* Configuration */ = {
+		A1D3CC30A1D3C80000000001 /* LICENSE */ = {
 			isa = PBXGroup;
 			children = (
-				EEC74EC0EEC74FE000000001 /* SampleCode.xcconfig */,
-			);
-			name = Configuration;
-			sourceTree = "<group>";
-		};
-		EEC9A3D0EEC9A39000000001 /* LICENSE */ = {
-			isa = PBXGroup;
-			children = (
-				EEC8D580EEC9A4A000000001 /* LICENSE.txt */,
+				A1D3C360A1D3B6F000000001 /* LICENSE.txt */,
 			);
 			name = LICENSE;
 			path = LICENSE;
+			sourceTree = "<group>";
+		};
+		A1D3FDF0A1D404B000000001 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				A1D45270A1D47E7000000001 /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,7 +98,7 @@
 				738998AE21515C9900E378D8 /* Sources */,
 				738998AF21515C9900E378D8 /* Frameworks */,
 				738998B021515C9900E378D8 /* Resources */,
-				739BA0D821540B55003980A5,
+				9160B8209160B4D000000001,
 			);
 			buildRules = (
 			);
@@ -121,6 +121,7 @@
 				TargetAttributes = {
 					738998B121515C9900E378D8 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -190,7 +191,7 @@
 /* Begin XCBuildConfiguration section */
 		738998C221515C9A00E378D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEC74EC0EEC74FE000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -252,7 +253,7 @@
 		};
 		738998C321515C9A00E378D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEC74EC0EEC74FE000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -308,7 +309,7 @@
 		};
 		738998C521515C9A00E378D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEC74EC0EEC74FE000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,17 +319,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord1${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		738998C621515C9A00E378D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEC74EC0EEC74FE000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,10 +339,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord1${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

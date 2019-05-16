@@ -51,7 +51,7 @@ To recognize speech from live audio, SpokenWord creates and configures an [SFSpe
 ``` swift
 // Create and configure the speech recognition request.
 recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
+guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
 recognitionRequest.shouldReportPartialResults = true
 ```
 
@@ -69,16 +69,17 @@ recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { r
         // Update the text view with the results.
         self.textView.text = result.bestTranscription.formattedString
         isFinal = result.isFinal
+        print("Text \(result.bestTranscription.formattedString)")
     }
     
     if error != nil || isFinal {
         // Stop recognizing speech if there is a problem.
         self.audioEngine.stop()
         inputNode.removeTap(onBus: 0)
-        
+
         self.recognitionRequest = nil
         self.recognitionTask = nil
-        
+
         self.recordButton.isEnabled = true
         self.recordButton.setTitle("Start Recording", for: [])
     }
