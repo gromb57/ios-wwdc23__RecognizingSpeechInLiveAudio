@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 The root view controller that provides a button to start and stop recording, and which displays the speech recognition results.
@@ -23,7 +23,17 @@ public class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet var recordButton: UIButton!
     
-    // MARK: View Controller Lifecycle
+    // MARK: Custom LM Support
+
+    @available(iOS 17, *)
+    private var lmConfiguration: SFSpeechLanguageModel.Configuration {
+        let outputDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let dynamicLanguageModel = outputDir.appendingPathComponent("LM")
+        let dynamicVocabulary = outputDir.appendingPathComponent("Vocab")
+        return SFSpeechLanguageModel.Configuration(languageModel: dynamicLanguageModel, vocabulary: dynamicVocabulary)
+    }
+    
+    // MARK: UIViewController
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +48,7 @@ public class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         // stored in a local member variable.
         speechRecognizer.delegate = self
         
-        // Asynchronously make the authorization request.
+        // Make the authorization request.
         SFSpeechRecognizer.requestAuthorization { authStatus in
 
             // Divert to the app's main thread so that the UI
@@ -46,8 +56,22 @@ public class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             OperationQueue.main.addOperation {
                 switch authStatus {
                 case .authorized:
-                    self.recordButton.isEnabled = true
-                    
+                    if #available(iOS 17, *) {
+                        Task.detached {
+                            do {
+                                let assetPath = Bundle.main.path(forResource: "CustomLMData", ofType: "bin", inDirectory: "customlm/en_US")!
+                                let assetUrl = URL(fileURLWithPath: assetPath)
+                                try await SFSpeechLanguageModel.prepareCustomLanguageModel(for: assetUrl,
+                                                                                           clientIdentifier: "com.apple.SpokenWord",
+                                                                                           configuration: self.lmConfiguration)
+                            } catch {
+                                NSLog("Failed to prepare custom LM: \(error.localizedDescription)")
+                            }
+                            await MainActor.run { self.recordButton.isEnabled = true }
+                        }
+                    } else {
+                        self.recordButton.isEnabled = true
+                    }
                 case .denied:
                     self.recordButton.isEnabled = false
                     self.recordButton.setTitle("User denied access to speech recognition", for: .disabled)
@@ -70,8 +94,10 @@ public class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     private func startRecording() throws {
         
         // Cancel the previous task if it's running.
-        recognitionTask?.cancel()
-        self.recognitionTask = nil
+        if let recognitionTask = recognitionTask {
+            recognitionTask.cancel()
+            self.recognitionTask = nil
+        }
         
         // Configure the audio session for the app.
         let audioSession = AVAudioSession.sharedInstance()
@@ -81,12 +107,15 @@ public class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 
         // Create and configure the speech recognition request.
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-        guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create a SFSpeechAudioBufferRecognitionRequest object") }
+        guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
         recognitionRequest.shouldReportPartialResults = true
         
         // Keep speech recognition data on device
         if #available(iOS 13, *) {
-            recognitionRequest.requiresOnDeviceRecognition = false
+            recognitionRequest.requiresOnDeviceRecognition = true
+            if #available(iOS 17, *) {
+                recognitionRequest.customizedLanguageModel = self.lmConfiguration
+            }
         }
         
         // Create a recognition task for the speech recognition session.
@@ -98,17 +127,16 @@ public class ViewController: UIViewController, SFSpeechRecognizerDelegate {
                 // Update the text view with the results.
                 self.textView.text = result.bestTranscription.formattedString
                 isFinal = result.isFinal
-                print("Text \(result.bestTranscription.formattedString)")
             }
             
             if error != nil || isFinal {
                 // Stop recognizing speech if there is a problem.
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
-
+                
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
-
+                
                 self.recordButton.isEnabled = true
                 self.recordButton.setTitle("Start Recording", for: [])
             }

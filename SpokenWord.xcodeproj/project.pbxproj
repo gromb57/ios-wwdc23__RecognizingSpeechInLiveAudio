@@ -13,7 +13,21 @@
 		738998BB21515C9900E378D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738998B921515C9900E378D8 /* Main.storyboard */; };
 		738998BD21515C9A00E378D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 738998BC21515C9A00E378D8 /* Assets.xcassets */; };
 		738998C021515C9A00E378D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738998BE21515C9A00E378D8 /* LaunchScreen.storyboard */; };
+		9A853EAA2A0191CC00FEAE5E /* customlm in Resources */ = {isa = PBXBuildFile; fileRef = 9A853EA92A0191CC00FEAE5E /* customlm */; };
+		9A853EB22A0196B500FEAE5E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A853EB12A0196B500FEAE5E /* main.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A853EAD2A0196B500FEAE5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		736165982176725C0062D377 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -24,12 +38,22 @@
 		738998BC21515C9A00E378D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		738998BF21515C9A00E378D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		738998C121515C9A00E378D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1D3C360A1D3B6F000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
-		A1D45270A1D47E7000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		9A853EA92A0191CC00FEAE5E /* customlm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = customlm; sourceTree = "<group>"; };
+		9A853EAF2A0196B500FEAE5E /* datagenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = datagenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A853EB12A0196B500FEAE5E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		FCA3813F8DC6D171AB712B51 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		738998AF21515C9900E378D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A853EAC2A0196B500FEAE5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,9 +68,10 @@
 			children = (
 				736165982176725C0062D377 /* README.md */,
 				738998B421515C9900E378D8 /* SpokenWord */,
+				9A853EB02A0196B500FEAE5E /* datagenerator */,
 				738998B321515C9900E378D8 /* Products */,
-				A1D3FDF0A1D404B000000001 /* Configuration */,
-				A1D3CC30A1D3C80000000001 /* LICENSE */,
+				D058EB7E4F0D06DE7CA9290A /* Configuration */,
+				AE91C1619D46B1844D542CE9 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				738998B221515C9900E378D8 /* SpokenWord.app */,
+				9A853EAF2A0196B500FEAE5E /* datagenerator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +87,7 @@
 		738998B421515C9900E378D8 /* SpokenWord */ = {
 			isa = PBXGroup;
 			children = (
+				9A853EA92A0191CC00FEAE5E /* customlm */,
 				738998B521515C9900E378D8 /* AppDelegate.swift */,
 				738998B721515C9900E378D8 /* ViewController.swift */,
 				738998B921515C9900E378D8 /* Main.storyboard */,
@@ -71,19 +98,27 @@
 			path = SpokenWord;
 			sourceTree = "<group>";
 		};
-		A1D3CC30A1D3C80000000001 /* LICENSE */ = {
+		9A853EB02A0196B500FEAE5E /* datagenerator */ = {
 			isa = PBXGroup;
 			children = (
-				A1D3C360A1D3B6F000000001 /* LICENSE.txt */,
+				9A853EB12A0196B500FEAE5E /* main.swift */,
+			);
+			path = datagenerator;
+			sourceTree = "<group>";
+		};
+		AE91C1619D46B1844D542CE9 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3813F8DC6D171AB712B51 /* LICENSE.txt */,
 			);
 			name = LICENSE;
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
-		A1D3FDF0A1D404B000000001 /* Configuration */ = {
+		D058EB7E4F0D06DE7CA9290A /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				A1D45270A1D47E7000000001 /* SampleCode.xcconfig */,
+				F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -98,7 +133,6 @@
 				738998AE21515C9900E378D8 /* Sources */,
 				738998AF21515C9900E378D8 /* Frameworks */,
 				738998B021515C9900E378D8 /* Resources */,
-				9160B8209160B4D000000001,
 			);
 			buildRules = (
 			);
@@ -109,19 +143,40 @@
 			productReference = 738998B221515C9900E378D8 /* SpokenWord.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9A853EAE2A0196B500FEAE5E /* datagenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A853EB32A0196B500FEAE5E /* Build configuration list for PBXNativeTarget "datagenerator" */;
+			buildPhases = (
+				9A853EAB2A0196B500FEAE5E /* Sources */,
+				9A853EAC2A0196B500FEAE5E /* Frameworks */,
+				9A853EAD2A0196B500FEAE5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = datagenerator;
+			productName = datagenerator;
+			productReference = 9A853EAF2A0196B500FEAE5E /* datagenerator */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		738998AA21515C9900E378D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					738998B121515C9900E378D8 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1100;
+					};
+					9A853EAE2A0196B500FEAE5E = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -139,6 +194,7 @@
 			projectRoot = "";
 			targets = (
 				738998B121515C9900E378D8 /* SpokenWord */,
+				9A853EAE2A0196B500FEAE5E /* datagenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -149,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				738998C021515C9A00E378D8 /* LaunchScreen.storyboard in Resources */,
+				9A853EAA2A0191CC00FEAE5E /* customlm in Resources */,
 				738998BD21515C9A00E378D8 /* Assets.xcassets in Resources */,
 				736165992176725C0062D377 /* README.md in Resources */,
 				738998BB21515C9900E378D8 /* Main.storyboard in Resources */,
@@ -164,6 +221,14 @@
 			files = (
 				738998B821515C9900E378D8 /* ViewController.swift in Sources */,
 				738998B621515C9900E378D8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A853EAB2A0196B500FEAE5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A853EB22A0196B500FEAE5E /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +256,7 @@
 /* Begin XCBuildConfiguration section */
 		738998C221515C9A00E378D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -253,7 +318,7 @@
 		};
 		738998C321515C9A00E378D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -309,7 +374,7 @@
 		};
 		738998C521515C9A00E378D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -319,7 +384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord1${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -329,7 +394,7 @@
 		};
 		738998C621515C9A00E378D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1D45270A1D47E7000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,11 +404,50 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord1${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SpokenWord${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9A853EB42A0196B500FEAE5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9A853EB52A0196B500FEAE5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F30A48563BC3EAE408DA91B3 /* SampleCode.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -364,6 +468,15 @@
 			buildConfigurations = (
 				738998C521515C9A00E378D8 /* Debug */,
 				738998C621515C9A00E378D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A853EB32A0196B500FEAE5E /* Build configuration list for PBXNativeTarget "datagenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A853EB42A0196B500FEAE5E /* Debug */,
+				9A853EB52A0196B500FEAE5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
